@@ -84,3 +84,4 @@
 			cout<<"Current Song playing:"<<current->title<<endl;        //current song playing/showing..(x==current)..directly
 			}
 		}
+# this is main file by prajit for data encurtion 
