@@ -1,0 +1,86 @@
+	cout<<"Song Added Successfully!!"<<endl;
+		}
+		
+		void remove(string x)                    //delete function
+		{
+    if(empty())
+    {
+        cout<<"Playlist is Empty"<<endl;
+        return;
+    }
+
+    song *q=head;                // q searches the list and p points to the node to be deleted.
+    song *p=NULL;                            
+
+    if(q->title==x)             //delete head song
+    {
+        p=head;
+        head=head->next;
+
+        if(current==p)
+        current=head;
+
+        if(head!=NULL)
+        head->prev=NULL;
+
+        delete p;
+        return;
+    }
+
+    while(q->next!=NULL)
+    {
+        if(q->next->title==x)              //(93-96) middle song delete
+        {
+            p=q->next;
+            q->next=p->next;
+
+            if(p->next!=NULL)              //(98-99) last song delete
+            p->next->prev=q;
+
+            if(current==p)
+                current=q;
+
+            delete p;
+            return;
+        }
+
+        q=q->next;
+    }
+
+    cout<<"Song '"<<x<<"' Not Found in playlist"<<endl;               //if song not found
+}
+	   	void play(string x)                                      //song play function
+	   	{
+	   		if(current==NULL)                                   //
+	   		{
+                cout << "Playlist is empty" << endl;
+                return;
+			}
+	   		else
+	   		{
+			   if(x=="next")                                   //play next song
+	   		    {
+	   			if(current->next==NULL)	
+	   			{
+	   				cout<<"Last Song (Can not play next)"<<endl;
+				}
+				else
+				{
+					current=current->next;
+				}
+			}
+			
+			else if(x=="previous")
+			{
+				if(current->prev==NULL)
+				{
+					cout<<"First Song (Can not play previous)"<<endl;
+				}
+				else
+				{
+					current=current->prev;
+				}
+			}
+			cout<<"Current Song playing:"<<current->title<<endl;        //current song playing/showing..(x==current)..directly
+			}
+		}
