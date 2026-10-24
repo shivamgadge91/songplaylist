@@ -1,0 +1,106 @@
+
+		void playCompletePlaylist()                                	// Play Complete Playlist
+		{
+			if(empty())
+			{
+				cout<<"Playlist is Empty"<<endl;
+				return;
+			}
+
+			song *q=head;
+
+			while(q!=NULL)
+			{
+				current=q;
+				cout<<"Current Song playing:"<<current->title<<endl;
+				q=q->next;
+			}
+		}
+
+		void repeatAll(int repetitions)              // Repeat All
+		{
+			if(empty())
+			{
+				cout<<"Playlist is Empty"<<endl;
+				return;
+			}
+
+			for(int i=1;i<=repetitions;i++)
+			{
+				cout<<"Repetition "<<i<<":"<<endl;
+
+				song *q=head;
+
+				while(q!=NULL)
+				{
+					current=q;
+					cout<<"Current Song playing:"<<current->title<<endl;
+					q=q->next;
+				}
+			}
+		}
+		
+		void displayforward()
+		{
+			if(empty())
+			{
+				cout<<"Playlist is Empty"<<endl;
+			}
+			else
+			{
+			song *q=head;
+			cout<<"Forward Display: "<<endl;
+			while(q!=NULL)
+			{
+				cout<<q->title<<"<=>";
+			    q=q->next;
+			}
+	    	}
+     	}
+		 
+		void displaybackward()
+		{
+			if(empty())
+			{
+				cout<<"Playlist is Empty"<<endl;
+			}
+			else
+			{
+			song *q=head;
+			cout<<"Backward Display:"<<endl;
+			while(q->next!=NULL)
+			{
+				q=q->next;
+			}
+			while(q!=NULL)
+			{
+				cout<<q->title<<"<=>";
+				q=q->prev;
+			}
+	     	}
+		}
+};
+
+int main()
+{
+    playlist p;
+    int choice;
+    string title, artist;
+
+    do
+    {
+        cout << "**** MUSIC PLAYLIST ****" << endl;
+        cout << "1. Add Song" << endl;
+        cout << "2. Delete Song" << endl;
+        cout << "3. Display Playlist in Forward" << endl;
+        cout << "4. Display Playlist in Reverse" << endl;
+        cout << "5. Play Current Song" << endl;
+        cout << "6. Play Next Song" << endl;
+        cout << "7. Play Previous Song" << endl;
+        cout << "8. Play Complete Playlist" << endl;
+        cout << "9. Repeat All" << endl;
+        cout << "10. Show Current Song" << endl;
+        cout << "11. Exit" << endl;
+
+        cout << "Enter your choice: ";
+        cin >> choice;cout<<endl;
